@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+
+  <!-- Confetti library -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: 
+        linear-gradient(
+          rgba(255, 154, 158, 0.75),
+          rgba(250, 208, 196, 0.75)
+        ),
+        url("https://upload.wikimedia.org/wikipedia/commons/4/4d/Vada_Pav.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 35px;
+      border-radius: 18px;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+      text-align: center;
+      width: 320px;
+      position: relative;
+      backdrop-filter: blur(2px);
+    }
+
+    h1 {
+      color: #ff3b6f;
+      margin-bottom: 25px;
+    }
+
+    button {
+      padding: 14px 22px;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    #yes {
+      background-color: #ff3b6f;
+      color: white;
+    }
+
+    #no {
+      background-color: #e0e0e0;
+      position: absolute;
+    }
+
+    #message {
+      margin-top: 20px;
+      font-size: 16px;
+      color: #444;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Will you be my Valentine, Aayushi? 💖</h1>
+
+    <button id="yes" onclick="yesClicked()">Yes 💕</button>
+    <button id="no" onclick="noClicked()" onmouseover="runAway()">No 🙄</button>
+
+    <div id="message"></div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+
+    function runAway() {
+      const x = Math.random() * 240 - 120;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function noClicked() {
+      alert("If you click no, you’re agreeing Delhi is better than Bombay 😏");
+      runAway();
+    }
+
+    function yesClicked() {
+      document.getElementById("message").innerHTML =
+        "Yayyy! ❤️ Best decision ever 😍<br>See you on Valentine’s 😉";
+
+      confetti({
+        particleCount: 160,
+        spread: 80,
+        origin: { y: 0.6 }
+      });
+    }
+  </script>
+
+</body>
+</html>
